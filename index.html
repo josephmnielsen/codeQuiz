@@ -54,36 +54,37 @@
       a: 'strings',
       b: 'booleans',
       c: 'alerts',
-      answer: 'c'
+      answer: 'alerts'
      } ,
      {
       q: 'The conditions of an If statement are enclosed in:',
       a: 'parentheses',
       b: 'curly brackets',
       c: 'quotations',
-      answer: 'a'
+      answer: 'parentheses'
      } ,
      {
       q: 'The instructions for a function are enclosed in:',
       a: 'parentheses',
       b: 'curly brackets',
       c: 'quotations',
-      answer: 'b'
+      answer: 'curly brackets'
     } ,
     {
       q: 'A property of an object that is a function is called a:',
       a: 'method',
       b: 'system',
       c: 'operator',
-      answer: 'a'
+      answer: 'method'
     }
   ]
     let count = 0
     let score = 0
+    let seconds = 75
 
     document.getElementById('start').addEventListener('click', event =>{
 
-        let seconds = 75
+        
 
         let timer = setInterval(() => {
           seconds--
@@ -94,7 +95,7 @@
             clearInterval(timer)
           }
           
-          if (count > 4) {
+          if (count > 3) {
             clearInterval(timer)
             document.getElementById('seconds').textContent = 'Game over!'
           }
@@ -111,20 +112,31 @@
 
     document.addEventListener('click', event => {
       if (event.target.className === 'options') {
+        console.log(event.target.textContent)
+        console.log(quizQuestions[count].answer)
+        if (event.target.textContent === quizQuestions[count].answer) {
+          score++
+          console.log('score increased')
+        }
+        if (event.target.textContent !== quizQuestions[count].answer) {
+          seconds -= 5
+          console.log('time decreased')
+        }
+
         count++
         document.getElementById('questions').textContent = quizQuestions[count].q
         document.getElementById('choices').innerHTML = `
       <button class="options">${quizQuestions[count].a}</button>
       <button class="options">${quizQuestions[count].b}</button>
       <button class="options">${quizQuestions[count].c}</button>`
-      
+
       
     }
     
   })
   
   document.addEventListener('click', event => {
-    if (count > 4) {
+    if (count > 3) {
       
       document.getElementById('questions').textContent = 'Game over!'
       document.getElementById('choices').innerHTML = `
@@ -137,6 +149,15 @@
       }
       
     })
+
+    // document.addEventListener('click', event => {
+    //   if(event.target.textContent === quizQuestions[count].answer) {
+    //     score++
+    //   }
+    //   if (event.target !== quizQuestions[count].answer) {
+    //     seconds- 5
+    //   }
+    // })
     
     
     </script>
