@@ -116,11 +116,11 @@
         console.log(quizQuestions[count].answer)
         if (event.target.textContent === quizQuestions[count].answer) {
           score++
-          console.log('score increased')
+          
         }
         if (event.target.textContent !== quizQuestions[count].answer) {
           seconds -= 5
-          console.log('time decreased')
+          
         }
 
         count++
@@ -143,22 +143,18 @@
       <div>
         <h1>Final Score:</h1>
         <p>${score}</p>
-        </div>
+      </div>
+      <div>Enter your initials below!</div>
+      <hr>
+      <input id="intialsScore" type="text">
+      <button id="submitScore">Submit score</button> 
         `
         
       }
       
     })
 
-    // document.addEventListener('click', event => {
-    //   if(event.target.textContent === quizQuestions[count].answer) {
-    //     score++
-    //   }
-    //   if (event.target !== quizQuestions[count].answer) {
-    //     seconds- 5
-    //   }
-    // })
-    
+
     
     </script>
 
