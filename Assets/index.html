@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+la<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -42,8 +42,8 @@
 
 
 
-   var quizQuestions = [{
-
+   let quizQuestions = [
+     {
       q: 'Commonly used data types do NOT include:' ,
       a: 'strings',
       b: 'booleans',
@@ -70,9 +70,12 @@
       b: 'system',
       c: 'operator',
       answer: 'a'
-    }]
+    }
+  ]
+    let count = 0
+    let score = 0
 
-      document.getElementById('start').addEventListener('click', event =>{
+    document.getElementById('start').addEventListener('click', event =>{
 
         let seconds = 75
 
@@ -85,21 +88,56 @@
             clearInterval(timer)
           }
           
+          if (count > 4) {
+            clearInterval(timer)
+            document.getElementById('seconds').textContent = 'Game over!'
+          }
+          
+          
+          
         }, 1000);
+          
+      
+      document.getElementById('questions').textContent = quizQuestions[0].q
+      document.getElementById('choices').innerHTML = `
+      <button class="options">${quizQuestions[0].a}</button>
+      <button class="options">${quizQuestions[0].b}</button>
+      <button class="options">${quizQuestions[0].c}</button>`
+    })
 
+    document.addEventListener('click', event => {
+      if (event.target.className === 'options') {
+        count++
+        document.getElementById('questions').textContent = quizQuestions[count].q
+        document.getElementById('choices').innerHTML = `
+      <button class="options">${quizQuestions[count].a}</button>
+      <button class="options">${quizQuestions[count].b}</button>
+      <button class="options">${quizQuestions[count].c}</button>`
+      
+      
+    }
+    
+  })
+  
+  document.addEventListener('click', event => {
+    if (count > 4) {
+      
+      document.getElementById('questions').textContent = 'Game over!'
+      document.getElementById('choices').innerHTML = `
+      <div>
+        <h1>Final Score:</h1>
+        <p>${score}</p>
         
-         nextQuestion.textContent = [quizQuestions].q
-         document.getElementById('choices').innerHTML = 
-         
-
-        }
-      })
-
+        
+        </div>
+        `
+        
+      }
+      
+    })
     
     
-
-
-  </script>
+    </script>
 
 </body>
 </html>
