@@ -1,1 +1,1 @@
-This is my attempt at creating a code quiz. I was able to get the quiz and timer running properly but have not been able to get the score to increase or the scoreboard functioning. I will be continuing to update as I work out the kinks.
+This is my attempt at creating a code quiz. I was able to get the quiz, timer, and score functioning but have not been able to get the scoreboard functioning yet. I will continue to update as I am able to debug these issues.
