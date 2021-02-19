@@ -1,4 +1,4 @@
-la<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -6,6 +6,7 @@ la<!DOCTYPE html>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+ <link rel="stylesheet" href="./style.css">
 
   <title>Document</title>
 </head>
@@ -13,21 +14,26 @@ la<!DOCTYPE html>
   
   <div class="container">
     <div class="row">
-      <h1 id="seconds">75 seconds remaining</h1>
+      <div class="timer">
+
+        <h3 id="seconds">75 seconds remaining</h3>
+      </div>
     </div>
     <div class="row">
       <div class="col-sm-4"></div>
       <div class="col-sm-4">
-        
-        <div id="questions">
-          <h1 id="question">Click "start" to begin quiz</h1>
-          <hr>
-          <button id="start">Start</button>
-        </div>
-        <div id="choices">
+        <div class="quiz">
 
-        </div>
+          <div id="questions" class="questions">
+            <h2>Click "start" to begin quiz</h2>
+            <hr>
+            <button id="start">Start</button>
+          </div>
+          <div id="choices" class="options">
+            
+          </div>
           
+        </div>        
       </div>
       <div class="col-sm-4"></div>
     </div>
@@ -93,8 +99,6 @@ la<!DOCTYPE html>
             document.getElementById('seconds').textContent = 'Game over!'
           }
           
-          
-          
         }, 1000);
           
       
@@ -127,8 +131,6 @@ la<!DOCTYPE html>
       <div>
         <h1>Final Score:</h1>
         <p>${score}</p>
-        
-        
         </div>
         `
         
